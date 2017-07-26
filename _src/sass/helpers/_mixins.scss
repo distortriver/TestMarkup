@@ -1,0 +1,98 @@
+
+@mixin mtop($multiplier: 1, $firstOrLast: true){
+	margin-top: $base-vertical-margin * $multiplier;
+	@if $firstOrLast {
+		&:first-child { margin-top: 0; }
+	}
+}
+
+@mixin mbot($multiplier: 1, $firstOrLast: true){
+	margin-bottom: $base-vertical-margin * $multiplier;
+	@if $firstOrLast {
+		&:last-child { margin-bottom: 0; }
+	}
+}
+
+
+@mixin margin($multiplier: 1, $firstOrLast: true){
+	margin-top: $base-vertical-margin * $multiplier;
+	margin-bottom: $base-vertical-margin * $multiplier;
+	@if $firstOrLast {
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+	}
+}
+
+
+@mixin retinabg($url, $url2x, $size, $position, $repeat: no-repeat) {
+	background: url($url) $repeat $position;
+	background-size: $size;
+	@media #{$media-retina} {
+		background-image: url($url2x);
+	}
+}
+
+@mixin retinacoverbg($url, $url2x, $position: 0 0, $repeat: no-repeat) {
+	background: url($url) $repeat $position;
+	background-size: cover;
+	@media #{$media-retina} {
+		background-image: url($url2x);
+	}
+}
+
+@mixin fontsizerel($size, $font-size-base-num: $font-size-base-num){
+	font-size: $size/$font-size-base-num*100%;
+}
+
+@mixin vertical-middle(){
+	display: inline-block;
+	vertical-align: middle;
+}
+@mixin vertical-middle-parent(){
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+	}
+}
+
+@mixin retina() {
+	@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+		& {
+			@content;
+		}
+	}
+}
+
+
+@mixin clearfix() {
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+	@if not index(top right bottom left, $direction) {
+		@error "Direction must be either `top`, `right`, `bottom` or `left`.";
+	}
+
+	width: 0;
+	height: 0;
+	content: '';
+	z-index: 2;
+	$perpendicular-borders: $size solid transparent;
+
+	@if $direction == top {
+		border-bottom-style: solid;
+	} @else if $direction == bottom {
+		border-top-style: solid;
+	} @else if $direction == right {
+		border-left-style: solid;
+	} @else if $direction == left {
+		border-right-style: solid;
+	}
+}

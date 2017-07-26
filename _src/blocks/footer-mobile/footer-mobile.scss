@@ -1,0 +1,46 @@
+.footer-mobile {
+	background: $color-bg-dark;
+	padding: $mobile-outer-margin;
+	color: $color-white;
+
+	a {
+		color: $color-white;
+	}
+
+	&__contacts,
+	&__copyright {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+	&__contacts-headline{
+		@include fontsizerel(20);
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+		margin-top: 10px;
+	}
+	&__contacts {
+		text-align: center;
+	}
+	&__contacts-link {
+		font-size: 80%;
+		font-weight: 600;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;
+	}
+	&__contacts.content-area a {
+		text-decoration: none;
+	}
+	&__contacts-mail {
+		font-size: 120%;
+		@include fontsizerel(25);
+		@include margin(0.25);
+	}
+}

@@ -1,0 +1,86 @@
+.requirements {
+	margin-bottom:95px;
+
+	&__wrapper {
+		background: $color-bg-medium;
+		width: 70%;
+		margin: 15px auto 0;
+		border-radius: 10px;
+		padding: 30px 30px 40px 30px;
+		position: relative;
+	}
+	&__head {
+		margin-bottom: 35px;
+	}
+	&__head-headline {
+		margin-left: 20px;
+		margin-top: 20px;
+		@include fontsizerel(30);
+		font-weight: 600;
+	}
+	&__item {
+		margin-bottom: 25px;
+		&-text {
+			margin-left: 20px;
+			@include fontsizerel(21);
+		}
+		&-ico{
+			position: relative;
+			left: -30px;
+			top: -15px;
+			&:before{
+				content: '';
+				position: absolute;
+				@include retinabg('../img/ico-check.png', '../img/ico-check@2x.png', 21px 16px, 50% 50%);
+				width: 21px;
+				height: 21px;
+				top: 20px;
+				left: -10px;
+				z-index: 3;
+			}
+			&:after{
+				top: 20px;
+				left: -15px;
+				content: '';
+				position: absolute;
+				width: 21px;
+				height: 21px;
+				border: 2px solid #fff;
+				border-radius: 30px;
+				background: $color-bg-medium;
+			}
+		}
+	}
+	a#{&}__btn {
+		position: absolute;
+		padding: 15px 45px;
+		bottom: -35px;
+		margin-left: 15px;
+	}
+
+	@media #{$media-mobile} {
+		margin-bottom: 75px;
+		&__wrapper {
+			padding:5px;
+			box-sizing: border-box;
+			width:100%;
+		}
+		&__head-headline {
+			margin-left: 10px;
+		}
+		&__item {
+			margin-bottom: 15px;
+			&-text {
+				margin-left: 10px;
+				@include fontsizerel(21);
+			}
+		}
+		a#{&}__btn {
+			position: initial;
+			margin: 10px auto 20px;
+			display: block;
+			text-align: center;
+			max-width: 300px;
+		}
+	}
+}

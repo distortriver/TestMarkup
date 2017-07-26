@@ -1,0 +1,33 @@
+.promo-community{
+	&__bg {
+		@include retinacoverbg('../img/bg-community.jpg', '../img/bg-community@2x.jpg');
+		z-index: 0;
+		position: relative;
+		padding-top: 125px;
+		padding-bottom: 135px;
+	}
+	&__wrp{
+		text-align: center;
+		color: $color-white;
+	}
+	&__headline{
+		@include fontsizerel(47);
+		font-weight:600;
+	}
+	&__btn{
+		font-weight: 600;
+		letter-spacing: 1px;
+		margin-top: 30px;
+	}
+
+	@media #{$media-mobile} {
+		&_bg{
+
+			padding-top: 65px;
+			padding-bottom: 65px;
+		}
+		&__headline{
+			@include fontsizerel(40);
+		}
+	}
+}

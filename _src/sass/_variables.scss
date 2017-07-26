@@ -1,0 +1,56 @@
+// Grid settings
+$content-max-width: 1200px; // That's where fluid becomes fixed
+$content-min-width: 936px; // That's where fluid becomes fixed
+$base-vertical-margin: 20px; // The mother of all margins. Usually = base line height
+$base-horizontal-margin: $base-vertical-margin; // Usually equal vertical margin, but can be customized
+
+
+// Media queries
+$media-desktop: "screen and (max-width: 1210px)"; // 1024-1280
+$media-desk: "screen and (max-width: 1279px)"; // 1024-1280
+$media-tablet: "screen and (max-width: 1023px)"; // 768-1024
+$media-phone-landscape: "screen and (max-width: 767px)"; // 480-767 (large phones included, ipad vertical - not)
+$media-phone: "screen and (max-width: 479px)"; // 320-479 (iphone 4 landscape not included)
+$media-retina: "(-webkit-min-device-pixel-ratio: 1.25),  (min-resolution: 120dpi)";
+$media-mobile: $media-phone-landscape;
+$media-not-mobile: "screen and (min-width: 768px)";
+
+// styles
+$font-base: Arial, sans-serif;
+$font-size-base-num: 24;
+$font-size-base: 24px;
+
+$line-height-base: (20/14);
+$color-white: #ffffff;
+
+$color-text: #3b3738;
+$color-text-dark: #333;
+$color-text-light: #eee;
+$color-accent-text: #2196f3;
+$color-accent-text-alt: #3fb9ff;
+$color-promo: #ff5964;
+$color-promo-alt: #ff6670;
+
+$color-link: $color-accent-text;
+$color-link-hover: #6dc5ff;
+$color-button: #2196f3;
+
+$color-body: $color-white;
+
+$color-bg-light: #fff2f3;
+$color-bg-medium: #eceff1;
+$color-bg-main: #464646;
+$color-bg-dark: #2b2b2b;
+
+$color-button-default-bg: $color-button;
+$color-button-default-bg-alt-light: $color-accent-text-alt;
+$color-button-default-bg-alt-dark: #1d7dcc;
+$color-button-default-text: $color-white;
+
+$color-button-primary-bg: $color-button;
+$color-button-primary-text: $color-white;
+
+$color-status-ok: #38aa34;
+$color-status-error: #c10000;
+
+$mobile-outer-margin: 10px;

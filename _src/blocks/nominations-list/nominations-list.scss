@@ -1,0 +1,162 @@
+.nominations-list {
+	position: relative;
+	margin-left: -2.5%;
+	margin-top: 50px;
+	&:after {
+		content: '';
+		display: block;
+		clear: left;
+	}
+
+	&__item {
+		float: left;
+		box-sizing: border-box;
+		width: 47.5%;
+		margin-left: 2.5%;
+
+		position: relative;
+		height: 120px;
+		margin-bottom: 40px;
+
+		&:nth-child(1) {
+			.nominations-list__item {
+				&-stripe {
+					background: #08a4bd;
+				}
+				&-headline {
+					color: #08a4bd;
+				}
+			}
+		}
+
+		&:nth-child(2) {
+			.nominations-list__item {
+				&-stripe {
+					background: #ff5964;
+				}
+				&-headline {
+					color: #ff5964;
+				}
+			}
+		}
+
+		&:nth-child(3) {
+			.nominations-list__item {
+				&-stripe {
+					background: #7fb800;
+				}
+				&-headline {
+					color: #7fb800;
+				}
+			}
+		}
+
+		&:nth-child(4) {
+			.nominations-list__item {
+				&-stripe {
+					background: #5863f8;
+				}
+				&-headline {
+					color: #5863f8;
+				}
+			}
+		}
+
+		&:nth-child(5) {
+			.nominations-list__item {
+				&-stripe {
+					background: #f45d01;
+				}
+				&-headline {
+					color: #f45d01;
+				}
+			}
+		}
+
+		&-holder {
+			max-height: 120px;
+			border-radius: 5px;
+			box-shadow: 0 9px 29px -10px #bbb;
+			overflow: hidden;
+			background: $color-white;
+			position: relative;
+			z-index: 1;
+			transition: max-height 0.15s ease-in-out, box-shadow 0.15s ease-in-out, z-index 0.25s linear;
+			&:hover {
+				z-index: 15;
+				max-height: 500px;
+				box-shadow: 0 9px 29px -8px #888;
+			}
+		}
+		&-wrp {
+			height: 200px;
+			position: relative;
+			padding-left: 55px;
+		}
+		&-stripe {
+			background: #fff;
+			position: absolute;
+			height: 200px;
+			width: 20px;
+			border-radius: 100%;
+			left: -10px;
+			top: -1px;
+			z-index: 2;
+		}
+
+		&-headline {
+			text-transform: uppercase;
+			@include fontsizerel(20);
+			margin-top: 10px;
+		}
+		&-name {
+			font-weight: 600;
+			@include fontsizerel(22);
+			margin-top: 5px;
+		}
+		&-desc {
+			@include fontsizerel(18);
+			margin-top: 10px;
+			line-height: 20px;
+			padding-right: 25px;
+		}
+		&-fade {
+			height: 20px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			z-index: 1;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+		}
+	}
+
+	@media #{$media-mobile} {
+		&__item {
+			width: 97.5%;
+			height: auto;
+			&-wrp {
+				height: auto;
+				padding-left: 30px;
+			}
+			&-holder {
+				max-height: none;
+			}
+			&-stripe {
+				height: 100%;
+			}
+			&-name {
+				@include fontsizerel(18);
+				line-height: 1.2;
+			}
+			&-desc {
+				@include fontsizerel(16);
+				line-height: 1.2;
+				padding-right: 5px;
+				padding-bottom: 10px;
+			}
+			&-fade {
+				display: none;
+			}
+		}
+	}
+}

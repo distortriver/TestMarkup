@@ -1,0 +1,246 @@
+
+@import 'variables';
+@import 'helpers/mixins';
+
+/*-- Вспомогательные стили --*/
+
+.clearfix {
+	@include clearfix();
+}
+
+.content-center {
+	width: 95%;
+	margin: 0 auto;
+	max-width: $content-max-width;
+	@media #{$media-desktop} {
+		min-width: 980px;
+	}
+	@media #{$media-phone-landscape} {
+		margin-left: $mobile-outer-margin;
+		margin-right: $mobile-outer-margin;
+		min-width: 0;
+		max-width: initial;
+		width: initial;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+
+/*-- Структура страницы --*/
+body {
+	font-family: $font-base;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $color-text;
+	background-color: $color-body;
+	@media #{$media-desk} {
+		font-size: 20px;
+	}
+
+}
+
+/*-- Контентные стили --*/
+
+a {
+	text-decoration: underline;
+	color: $color-link;
+	transition: color 0.1s linear, border-color 0.1s linear, background-color 0.1s linear;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin button() {
+	background: $color-button-default-bg;
+	color: $color-button-default-text;
+	display: inline-block;
+	padding: 10px 25px;
+	line-height: 1.5;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	border-radius: 50px;
+	text-transform: uppercase;
+	box-sizing: border-box;
+	transition: background-color 0.2s ease-in-out;
+
+	&:hover {
+		background: $color-button-default-bg-alt-light;
+		text-decoration: none;
+	}
+
+	&:active {
+		background: $color-button-default-bg-alt-dark;
+		text-decoration: none;
+	}
+}
+
+.button, a.button {
+	@include button;
+}
+
+.button-primary, a.button-primary {
+	@extend .button;
+	text-transform: uppercase;
+	background: $color-button-primary-bg;
+	color: $color-button-primary-text;
+	transition: background-color 0.2s ease-in-out;
+	border: none;
+	&:hover {
+		background: lighten($color-button-primary-bg, 2%);
+	}
+}
+
+.button-big, a.button-big {
+	@extend .button;
+	font-size: 14px;
+	border-radius: 25px;
+}
+
+.button-cta, a.button-cta {
+	background: $color-promo;
+	box-shadow: 0 0 0 10px transparentize($color-promo, .6);
+	padding: 15px 50px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	&:hover {
+		background: $color-promo-alt;
+		box-shadow: 0 0 0 10px transparentize($color-promo, .3);
+	}
+	&:active {
+		background: $color-promo;
+		box-shadow: 0 0 0 10px transparentize($color-promo, .2);
+	}
+	@media #{$media-mobile} {
+		padding: 10px 30px;
+	}
+}
+
+.button-secondary, a.button-secondary {
+	@extend .button;
+	background: $color-button-primary-bg;
+	color: $color-button-primary-text;
+	border: none;
+	&:hover {
+		background: lighten($color-button-primary-bg, 2%);
+	}
+}
+
+.button-medium, a.button-medium {
+	text-transform: uppercase;
+	color: $color-white;
+	font-weight: 700;
+	&:hover {
+		text-decoration: none;
+		color: $color-white;
+	}
+}
+
+
+/* Прочее */
+b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+
+
+/*-- Разное --*/
+
+.modals {
+	display: none;
+}
+
+iframe {
+	border-width: 0;
+}
+
+.is-hide {
+	display: none
+}
+.is-inactive {
+	opacity: 0.2;
+	order: 2;
+}
+
+@media #{$media-mobile} {
+	.is-hide-mobile {
+		display: none !important;
+	}
+}
+
+@media #{$media-not-mobile} {
+	.is-hide-desktop {
+		display: none !important;
+	}
+}
+
+
+.tooltip {
+	background: $color-white;
+	bottom: 100%;
+	display: block;
+	left: -35px;
+	margin-bottom: 15px;
+	opacity: 0;
+	padding: 20px;
+	pointer-events: none;
+	position: absolute;
+	width: 350px;
+	transform: translateY(10px);
+	transition: all .25s ease-out;
+	box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.28);
+	border-radius: 5px;
+	z-index: 3;
+	line-height: 1.2;
+	&:before {
+		bottom: -20px;
+		content: " ";
+		display: block;
+		height: 20px;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	&:after {
+		border-left: solid transparent 10px;
+		border-right: solid transparent 10px;
+		border-top: solid #fff 10px;
+		bottom: -10px;
+		content: " ";
+		height: 0;
+		left: 14%;
+		margin-left: -13px;
+		position: absolute;
+		width: 0;
+	}
+
+	&-text {
+		@include fontsizerel(18);
+	}
+
+	&.is-left {
+		left: -310px;
+
+		&:after {
+			left: 84.5%;
+		}
+	}
+	@media #{$media-mobile} {
+		width: 220px;
+	}
+}
+
+/*-- Блоки --*/
+@import '../tmp/blocks';
+@import 'layout';
+

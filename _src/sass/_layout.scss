@@ -1,0 +1,43 @@
+.layout {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+
+
+	&__footer {
+		@include mtop(4);
+	}
+	&__header {
+		@include mbot(2);
+		@media #{$media-phone-landscape} {
+			margin-bottom: 0;
+		}
+	}
+
+	&__header, &__footer {
+		position: relative;
+
+		@media #{$media-desktop} {
+			min-width: 980px;
+		}
+		@media #{$media-phone-landscape} {
+			min-width: inherit;
+		}
+
+		z-index: 20;
+		@media #{$media-mobile} {
+			z-index: unset;
+		}
+	}
+
+	&__block {
+		@include margin(2);
+		@media #{$media-phone-landscape} {
+			@include margin(1);
+		}
+	}
+	&__mobile-overflow {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}

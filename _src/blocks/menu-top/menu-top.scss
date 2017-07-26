@@ -1,0 +1,224 @@
+@mixin menu-top__link() {
+	position: relative;
+	text-decoration: none;
+	color: $color-text-dark;
+
+	&:visited {
+		color: $color-text-dark;
+	}
+
+	&:hover, &:visited:hover {
+		text-decoration: underline;
+		color: $color-accent-text;
+	}
+}
+
+@mixin menu-top__link_bg() {
+	position: relative;
+	text-decoration: none;
+	color: #333333;
+
+	&:visited {
+		color: #333333;
+	}
+
+	&:hover, &:visited:hover {
+		background-color: #bbb;
+		color: #333333;
+	}
+}
+
+.menu-top {
+	&__plate {
+	}
+
+	&__first-level {
+		position: relative;
+		display: table;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		box-sizing: border-box;
+		@include clearfix;
+	}
+
+	&__first-item {
+		display: table-cell;
+		vertical-align: middle;
+		position: relative;
+		&:hover .menu-top__second-holder,
+		&:hover .menu-top__additional-holder {
+			display: block;
+		}
+
+		&.is-additional {
+			position: relative;
+		}
+	}
+
+	a#{&}__first-link {
+		@include menu-top__link;
+		display: block;
+		padding: 10px 15px 0;
+
+	}
+	&__first-item.is-active a#{&}__first-link {
+		color: $color-accent-text;
+	}
+	&__first-item:first-child {
+		.menu-top__first-link {
+			padding: 10px 15px 0 0;
+		}
+	}
+	&__first-item:last-child {
+		.menu-top__first-link {
+			padding: 10px 0 0 15px;
+		}
+	}
+
+	&__second-holder {
+		//display: none;
+		position: absolute;
+		top: 100%;
+		z-index: 10;
+		width: 100%;
+		//min-width: 200px;
+		pointer-events: none;
+		box-sizing: border-box;
+	}
+
+	&__second-level {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	/*&__second-item {
+		position: relative;
+		&:hover .menu-top__third-holder {
+			display: block;
+		}
+		&.is-contain {
+			.menu-top__second-link {
+				position: relative;
+				&:before {
+					content: "\2026";
+					float: right;
+					padding-left: 0.5em;
+				}
+			}
+		}
+	}*/
+
+	&__second-link {
+		display: inline-block;
+		width: 100%;
+		color: $color-text;
+		margin: 2px 0;
+		text-decoration: none;
+		transition: color .15s ease-in-out;
+		&:hover {
+			color: $color-accent-text;
+			text-decoration: underline;
+		}
+	}
+
+	&__second-level {
+		border-radius: 5px;
+		background: $color-white;
+		border-top: 4px solid $color-accent-text;
+		@include fontsizerel(18);
+		padding: 20px;
+		left: -6px;
+		margin-top: 10px;
+		box-shadow: 0 7px 25px 4px rgba(40, 40, 40, 0.5);
+
+		transform: translateY(-10px);
+		transition: all .25s ease-out;
+		pointer-events: none;
+		opacity: 0;
+		width: 100%;
+
+		&:before {
+			position: absolute;
+			top: -12px;
+			left: 22px;
+			@include triangle('top', $color-accent-text, 8px);
+		}
+
+		a {
+			display: inline-block;
+			width: 100%;
+			color: $color-text;
+			margin: 2px 0;
+			text-decoration: none;
+			transition: color .15s ease-in-out;
+			&:hover {
+				color: $color-accent-text;
+				text-decoration: underline;
+			}
+		}
+	}
+	&__first-item:hover &__second-level {
+		pointer-events: auto;
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	&__first-item:hover &__second-holder {
+		pointer-events: auto;
+	}
+
+	&__third-holder {
+		display: none;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		width: 100%;
+		min-width: 250px;
+	}
+
+	&__third-level {
+	}
+
+	&__third-item {
+		position: relative;
+
+		&:hover .menu-top__fourth-holder {
+			display: block;
+		}
+
+		&.is-hide {
+			display: none;
+		}
+	}
+
+	&.is-inline {
+		display: inline-block;
+
+		a.menu-top__first-link {
+			border-bottom: 2px solid $color-promo;
+			padding: 0;
+			margin: 10px 10px 0;
+			&:hover {
+				text-decoration: none;
+				color: $color-promo;
+			}
+			@media #{$media-desk} {
+				margin: 7px 7px 0;
+			}
+		}
+
+		&__first-item:first-child {
+			.menu-top__first-link {
+				padding: 0;
+				margin: 10px 10px 0 0;
+			}
+		}
+		&__first-item:last-child {
+			.menu-top__first-link {
+				padding: 0;
+				margin: 10px 0 0 10px;
+			}
+		}
+	}
+}

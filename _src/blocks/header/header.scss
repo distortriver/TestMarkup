@@ -1,0 +1,107 @@
+.header {
+
+	background: $color-white;
+
+	&__center {
+		@extend .content-center;
+		@include clearfix();
+		position: relative;
+	}
+
+	&__top,
+	&__bottom {
+		clear: both;
+	}
+
+	&__bottom {
+		@include margin;
+		height: 80px;
+	}
+
+	&__logo-block {
+		padding-top: 20px;
+		float: left;
+		a.header__logo {
+			display: inline-block;
+			vertical-align: bottom;
+			&:after{
+				content: '';
+				width: 0;
+				display: block;
+				padding-bottom: 15px;
+				border-bottom: 2px solid $color-white;
+				animation: WidthIn 1.5s;
+				animation-fill-mode: forwards;
+				animation-delay: 0.3s;
+				transition: border-color 0.2s ease-in 0s;
+			}
+			&:hover{
+				&:after{
+					border-color: $color-promo;
+				}
+			}
+			&:first-child {
+				vertical-align: middle;
+			}
+			& img {
+				display: block;
+			}
+		}
+	}
+
+	&__row {
+		position: relative;
+		display: block;
+	}
+
+	.menu-top {
+		float: right;
+		margin-top: 20px;
+		@include fontsizerel(23);
+	}
+
+}
+@media screen and (max-width: 1090px) {
+	.header .menu-top{
+		@include fontsizerel(21);
+	}
+	.header .menu-top a.menu-top__first-link{
+		padding: 10px 10px;
+	}
+}
+
+.is-promo {
+	&.header {
+		background: transparent;
+
+		.menu-top a.menu-top__first-link{
+			color: $color-white;
+			&:visited{
+				color: $color-white;
+			}
+			&:hover{
+				color: $color-promo;
+			}
+		}
+	}
+	.header {
+		&__bottom {
+			height: 110px;
+		}
+		&__logo-block {
+			a.header__logo {
+				vertical-align: baseline;
+			}
+		}
+		@media #{$media-desk} {
+			&__logo {
+				width: 200px;
+			}
+		}
+	}
+}
+
+@keyframes WidthIn {
+	from { width: 0; }
+	to { width: 100%; }
+}

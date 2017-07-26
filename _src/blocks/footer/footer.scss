@@ -1,0 +1,73 @@
+.footer {
+	background: $color-bg-dark;
+	@include clearfix;
+	color: $color-text-light;
+	a {
+		color: $color-text-light;
+	}
+
+	&__top{
+		@include clearfix;
+		padding-top: 40px;
+	}
+
+	&__contacts {
+		text-align: right;
+		margin-left: 30px;
+
+		&-headline {
+			text-transform: uppercase;
+			font-size: 17px;
+			font-weight: 600;
+		}
+		&-text {
+			font-weight: normal;
+			margin-top: 10px;
+			@include fontsizerel(26);
+			a {
+				text-decoration: none;
+				border-bottom: 2px solid $color-accent-text;
+				padding-bottom: 5px;
+				&:hover {
+					color: $color-accent-text;
+				}
+			}
+		}
+
+	}
+
+	&__bottom {
+		clear: both;
+		border-top: 1px solid white;
+		font-size: 0.9em;
+	}
+
+	&__legal {
+		margin-left: 30px;
+		margin-top: 30px;
+		@include fontsizerel(13);
+	}
+
+	&__copyright {
+		border-top:1px solid $color-bg-main;
+		padding-top:25px;
+		padding-bottom: 25px;
+		margin-top: 40px;
+		@include fontsizerel(18);
+
+		& span {
+			margin-left: 5px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&.footer__year {
+				color: $color-white;
+			}
+			&.footer__company {
+				color: $color-white;
+			}
+		}
+	}
+}
